@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "616721331858",
+    "project_id": "sellapp-5f5c3",
+    "storage_bucket": "sellapp-5f5c3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:616721331858:android:33644fb4272fa47e83d84b",
+        "android_client_info": {
+          "package_name": "com.example.customer_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGYPaKzUlkvzBb8ysmF646bta22JpJV7s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:616721331858:android:0abb5bcb3a0ef79383d84b",
+        "android_client_info": {
+          "package_name": "com.example.seller_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGYPaKzUlkvzBb8ysmF646bta22JpJV7s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
