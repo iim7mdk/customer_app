@@ -8,24 +8,54 @@ class ProductListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('المنتجات')),
+      appBar: AppBar(
+        title: Text('المنتجات'),
+        backgroundColor: Colors.teal,
+      ),
       body: StreamBuilder<QuerySnapshot>(
         stream: products.snapshots(),
         builder: (context, snapshot) {
-          if (snapshot.hasError) return Text('حدث خطأ');
+          if (snapshot.hasError) return Center(child: Text('حدث خطأ'));
           if (snapshot.connectionState == ConnectionState.waiting)
             return Center(child: CircularProgressIndicator());
 
           final data = snapshot.data!.docs;
 
           return ListView.builder(
+            padding: const EdgeInsets.all(8),
             itemCount: data.length,
             itemBuilder: (context, index) {
               final product = data[index];
-              return ListTile(
-                leading: Text(product['stock'].toString()),
-                title: Text(product['productName']),
-                subtitle: Text('${product['price']} ريال'),
+              return Card(
+                elevation: 3,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12)),
+                margin: const EdgeInsets.symmetric(vertical: 6),
+                child: Padding(
+                  padding:
+                  const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        product['productName'],
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18),
+                      ),
+                      SizedBox(height: 6),
+                      Text(
+                        'السعر: ${product['price'].toString()} ريال',
+                        style: TextStyle(
+                            color: Colors.teal, fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(height: 4),
+                      Text(
+                        'المخزون: ${product['stock'].toString()}',
+                        style: TextStyle(color: Colors.grey[700], fontSize: 14),
+                      ),
+                    ],
+                  ),
+                ),
               );
             },
           );
